@@ -1,5 +1,7 @@
 {
   "name": "showtymes",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }

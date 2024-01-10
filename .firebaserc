@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "showtymes-aecc7": {
+      "hosting": {
+        "app": [
+          "mightyshowtymes"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "showtymes-aecc7"
+  }
+}
