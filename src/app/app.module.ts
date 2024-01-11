@@ -8,12 +8,15 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
+import { FormsModule } from '@angular/forms';
+import { TabsComponent } from './tabs/tabs.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, TabsComponent],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(),
+    FormsModule,
+    IonicModule.forRoot({}),
     AppRoutingModule,
     provideFirebaseApp(() =>
       initializeApp({

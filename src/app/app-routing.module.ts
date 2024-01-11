@@ -5,6 +5,7 @@ import {
   redirectLoggedInTo,
   canActivate,
 } from '@angular/fire/auth-guard';
+import { TabsComponent } from './tabs/tabs.component';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['']);
 const redirectLoggedInToHome = () => redirectLoggedInTo(['home']);
@@ -27,10 +28,35 @@ const routes: Routes = [
       import('./pages/signup/signup.module').then((m) => m.SignupPageModule),
   },
   {
-    path: 'home',
-    loadChildren: () =>
-      import('./pages/home/home.module').then((m) => m.HomePageModule),
-    ...canActivate(redirectUnauthorizedToLogin),
+    path: '',
+    component: TabsComponent,
+    children: [
+      {
+        path: 'home',
+        loadChildren: () =>
+          import('./pages/home/home.module').then((m) => m.HomePageModule),
+        ...canActivate(redirectUnauthorizedToLogin),
+      },
+      {
+        path: 'categories',
+        loadChildren: () =>
+          import('./pages/categories/categories.module').then(
+            (m) => m.CategoriesPageModule
+          ),
+      },
+      {
+        path: 'food',
+        loadChildren: () =>
+          import('./pages/food/food.module').then((m) => m.FoodPageModule),
+      },
+      {
+        path: 'profile',
+        loadChildren: () =>
+          import('./pages/profile/profile.module').then(
+            (m) => m.ProfilePageModule
+          ),
+      },
+    ],
   },
 ];
 
