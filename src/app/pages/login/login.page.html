@@ -9,7 +9,7 @@
     <ion-label class="ml-4">Email</ion-label>
     <ion-item class="bg-[#161621] border-none border-transparent outline-none">
       <ion-input
-        class="bg-[#2B2B38] rounded-xl border-none outline-none"
+        class="bg-[#2B2B38] rounded-xl border-none outline-none focus:outline-none"
         type="email"
         formControlName="email"
       ></ion-input>
@@ -47,7 +47,7 @@
       >Log in</ion-button
     >
     <p class="ml-4">
-      <a (click)="register()" class="text-[#F74346]">Forgot password?</a>
+      <a href="#" class="text-[#F74346]">Forgot password?</a>
     </p>
 
     <div class="flex justify-between mx-4">
@@ -57,7 +57,8 @@
 
     <p class="ml-4">
       Don&apos;t have an account?
-      <a (click)="register()" class="text-[#F74346]">Sign Up</a>
+      <!-- <a (click)="register()" class="text-[#F74346]">Sign Up</a> -->
+      <a routerLink="/signup" class="text-[#F74346]">Sign Up</a>
     </p>
   </form>
 
