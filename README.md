@@ -5,3 +5,6 @@ For Android emulator:
 >> ionic cordova resources
 >> ionic cap sync android
 >> ionic cap open android
+
+
+npm i swiper@latest

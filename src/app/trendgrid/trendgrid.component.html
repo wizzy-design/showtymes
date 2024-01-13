@@ -1,0 +1,35 @@
+<!-- <ion-content class="h-[15rem]">
+  <h1>Trending Movies</h1>
+  <swiper-container
+    [slidesPerView]="2"
+    [loop]="true"
+    [pagination]="true"
+    class="space-x-8 ml-8"
+    *ngFor="let item of movies"
+    [routerLink]="[item?.id]"
+  >
+    <swiper-slide class="bg-orange-500 bg-[movies.poster_path]"
+      ><ion-card class="p-2"
+        ><ion-card-header>{{ movies[1].title }}</ion-card-header>
+        <ion-card-subtitle>{{ movies.rating }}</ion-card-subtitle>
+      </ion-card>
+    </swiper-slide>
+    <swiper-slide class="bg-orange-500">Slide 2</swiper-slide>
+    <swiper-slide class="bg-fuchsia-500">Slide 3</swiper-slide>
+  </swiper-container>
+</ion-content> -->
+<ion-header>
+  <ion-toolbar>
+    <ion-segment value="all">
+      <ion-segment-button value="all">
+        <ion-label>All</ion-label>
+      </ion-segment-button>
+      <p>All times</p>
+      
+      <ion-segment-button value="favorites">
+        <ion-label>Favorites</ion-label>
+      </ion-segment-button>
+      <p>All fav</p>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>

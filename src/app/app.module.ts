@@ -10,6 +10,7 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import { FormsModule } from '@angular/forms';
 import { TabsComponent } from './tabs/tabs.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent, TabsComponent],
@@ -18,6 +19,7 @@ import { TabsComponent } from './tabs/tabs.component';
     FormsModule,
     IonicModule.forRoot({}),
     AppRoutingModule,
+    HttpClientModule,
     provideFirebaseApp(() =>
       initializeApp({
         projectId: 'showtymes-aecc7',

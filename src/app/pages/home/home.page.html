@@ -1,22 +1,50 @@
-<!-- <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>home</ion-title>
-  </ion-toolbar>
-</ion-header>
+<!-- <app-trendgrid></app-trendgrid> -->
+<ion-content class="bg-[#161621]">
+  <!-- Segment Buttons -->
+  <ion-segment (ionChange)="segmentChanged($event)" value="comingSoon">
+    <ion-segment-button value="comingSoon" class="bg-[#2B2B38]">
+      Coming Soon
+    </ion-segment-button>
+    <ion-segment-button value="showingNow" class="bg-[#2B2B38]">
+      Showing Now
+    </ion-segment-button>
+  </ion-segment>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">home</ion-title>
-    </ion-toolbar>
-  </ion-header>
-</ion-content> -->
+  <!-- Coming Soon -->
+  <ion-list
+    *ngIf="selectedSegment === 'comingSoon'"
+    class="grid grid-cols-2 justify-items-center bg-[#161621] pt-6"
+  >
+    <ion-card
+      *ngFor="let movie of soonMovies"
+      class="flex flex-col h-80 w-[10rem] bg-[#161621] shadow-none"
+    >
+      <img
+        [src]="imageBaseUrl + '/w400' + movie.poster_path"
+        class="object-contain rounded-lg"
+      />
+      <span class="block text-[#F74346] text-center mt-3"
+        >{{ movie.title }}</span
+      >
+    </ion-card>
+  </ion-list>
 
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Listen now</ion-title>
-  </ion-toolbar>
-</ion-header>
-<ion-content>
-  <div class="example-content">Listen now content</div>
+  <!-- Showing Now -->
+  <ion-list
+    *ngIf="selectedSegment === 'showingNow'"
+    class="grid grid-cols-2 justify-items-center bg-[#161621] pt-6"
+  >
+    <ion-card
+      *ngFor="let movie of topMovies"
+      class="flex flex-col h-72 w-[10rem] bg-[#161621] shadow-none"
+    >
+      <img
+        [src]="imageBaseUrl + '/w400' + movie.poster_path"
+        class="object-contain rounded-lg"
+      />
+      <span class="block text-[#F74346] text-center mt-3"
+        >{{ movie.title }}</span
+      >
+    </ion-card>
+  </ion-list>
 </ion-content>
