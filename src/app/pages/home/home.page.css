@@ -1,1 +1,1 @@
-.segment-button-checked{color:#f74346}*{--color-checked: #F74346}
+.segment-button-checked{color:#f74346;border:2px solid #f74346}*{--color-checked: none}

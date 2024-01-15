@@ -32,7 +32,7 @@ export class HomePage implements OnInit {
     this.loadMovies();
   }
 
-  selectedSegment: string = 'movies';
+  selectedSegment: string = 'comingSoon';
 
   segmentChanged(event: CustomEvent) {
     this.selectedSegment = event.detail.value;

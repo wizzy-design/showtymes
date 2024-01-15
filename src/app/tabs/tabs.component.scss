@@ -2,3 +2,9 @@
 ion-tab-button.tab-selected {
   color: #f74346;
 }
+
+ion-tab-bar {
+  box-shadow: 0px 0px 45px 0px rgba(0, 0, 0, 0.5);
+  border-top-right-radius: 1.5625rem;
+  border-top-left-radius: 1.5625rem;
+}

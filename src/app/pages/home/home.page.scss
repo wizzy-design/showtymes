@@ -1,7 +1,11 @@
 .segment-button-checked{
     color: #F74346;
+    border: 2px solid #F74346;
 }
 
 *{
-    --color-checked: #F74346;
+    --color-checked: none;
 }
+
+// ion-segment-button:active{
+// }
