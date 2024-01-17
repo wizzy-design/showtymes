@@ -1,13 +1,107 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>movieDetails</ion-title>
+    <!-- Back Button -->
+    <ion-buttons slot="start">
+      <ion-back-button
+        default-href="#"
+        icon="chevron-back-outline"
+      ></ion-back-button>
+    </ion-buttons>
+
+    <!-- Cart Button -->
+    <ion-buttons slot="end">
+      <ion-button class="bg-[#2B2B38] rounded-lg"
+        ><ion-icon name="cart-outline" class="text-[#FAEAFF]"></ion-icon
+      ></ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">movieDetails</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content style="--background: #161621">
+  <!-- Movie Card -->
+  <ion-card *ngIf="movie" class="mt-8 bg-transparent shadow-none">
+    <!-- Movie Trailer Poster -->
+    <div class="relative flex flex-col items-center">
+      <img
+        [src]="imageBaseUrl + '/w400' + movie.backdrop_path"
+        alt="Movie Poster"
+        class="w-[95%] h-full rounded-lg opacity-[50%]"
+        id="posterImg"
+      />
+      <ion-icon
+        name="play-circle-outline"
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[#FAEAFF] z-50 text-5xl"
+      ></ion-icon>
+    </div>
+
+    <!-- Movie Title -->
+    <ion-card-header>
+      <ion-card-title class="text-[#F74346] font-bold text-3xl font-robo"
+        >{{movie.title}}</ion-card-title
+      >
+    </ion-card-header>
+
+    <ion-card-content class="h-[50rem]">
+      <!-- Movie Genre and Ratings -->
+      <section class="flex items-center justify-between">
+        <div class="space-x-4">
+          <ion-button
+            *ngFor="let g of movie.genres"
+            class="w-[4.5rem] text-sm font-normal capitalize rounded-md"
+            style="--background: #2b2b38"
+            >{{g.name}}</ion-button
+          >
+        </div>
+
+        <div>
+          <ion-icon name="star" class="text-[#FF9529]"></ion-icon>
+          {{movie.vote_average | number: '1.1-1' }}
+        </div>
+      </section>
+
+      <!-- Tickets -->
+      <ion-item
+        style="--background: none; --border-style: none"
+        class="mt-4 -ml-3"
+        ><ion-label>
+          <ion-text class="text-[#fff] font-medium text-xl"
+            >Ticket Prices: N7000</ion-text
+          >
+        </ion-label></ion-item
+      >
+
+      <!-- Showtimes -->
+      <ion-item style="--background: none; --border-style: none" class="-ml-3"
+        ><ion-label>
+          <!-- Line -->
+          <span class="block h-[2px] w-full bg-[#FAEAFF87] mb-5"></span>
+
+          <ion-text class="text-[#F74346] font-medium text-xl"
+            >Showtime: Mon-Thu | 10am, 2:30pm, 5:30pm</ion-text
+          >
+          <!-- Line -->
+          <span
+            class="block h-[2px] w-full bg-[#FAEAFF87] mt-5"
+          ></span></ion-label
+      ></ion-item>
+
+      <!-- Synopsis -->
+      <ion-item style="--background: none; --border-style: none" class="-ml-3">
+        <ion-label id="synopsis">
+          <h2 class="text-[#F74346] font-medium">Synopsis</h2>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque quae
+            saepe obcaecati quos consequatur voluptates dolorum, voluptas
+            numquam optio. Sit in dolore eum tenetur quod recusandae dolorum
+            eius illo ipsum.
+          </p>
+        </ion-label>
+      </ion-item>
+
+      <!-- Add to cart -->
+      <button class="mt-8 py-5 rounded-md gap-15 bg-[#F74346] flex justify-center gap-4 w-full text-[#fff] text-2xl"
+        ><ion-icon name="cart-outline" class="text-3xl"></ion-icon> Add to Cart</button
+      >
+    </ion-card-content>
+  </ion-card>
 </ion-content>

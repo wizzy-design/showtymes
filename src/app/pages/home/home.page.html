@@ -1,13 +1,23 @@
 <!-- <app-trendgrid></app-trendgrid> -->
 <ion-content class="bg-[#161621]">
-  <br>
-  <br>
+  <br />
+  <br />
   <!-- Segment Buttons -->
-  <ion-segment (ionChange)="segmentChanged($event)" value="comingSoon" class="flex justify-center bg-[#161621] gap-4">
-    <ion-segment-button value="comingSoon" class="bg-[#2B2B38] w-[10rem] rounded-lg">
+  <ion-segment
+    (ionChange)="segmentChanged($event)"
+    value="comingSoon"
+    class="flex justify-center bg-[#161621] gap-4"
+  >
+    <ion-segment-button
+      value="comingSoon"
+      class="bg-[#2B2B38] w-[10rem] rounded-lg"
+    >
       Coming Soon
     </ion-segment-button>
-    <ion-segment-button value="showingNow" class="bg-[#2B2B38] rounded-lg w-[10rem]">
+    <ion-segment-button
+      value="showingNow"
+      class="bg-[#2B2B38] rounded-lg w-[10rem]"
+    >
       Available Now
     </ion-segment-button>
   </ion-segment>
@@ -19,13 +29,17 @@
   >
     <ion-card
       *ngFor="let movie of soonMovies"
+      [routerLink]="['/home', movie?.id]"
       class="flex flex-col h-80 w-[10rem] bg-[#161621] shadow-none"
     >
       <img
         [src]="imageBaseUrl + '/w400' + movie.poster_path"
         class="object-contain rounded-lg"
+        [routerLink]="['/home', movie?.id]"
       />
-      <span class="block text-[#F74346] text-center mt-3"
+      <span
+        class="block text-[#F74346] text-center mt-3"
+        [routerLink]="['/home', movie?.id]"
         >{{ movie.title }}</span
       >
     </ion-card>
@@ -38,13 +52,17 @@
   >
     <ion-card
       *ngFor="let movie of topMovies"
+      [routerLink]="['/home', movie?.id]"
       class="flex flex-col h-72 w-[10rem] bg-[#161621] shadow-none"
     >
       <img
         [src]="imageBaseUrl + '/w400' + movie.poster_path"
+        [routerLink]="['/home', movie?.id]"
         class="object-contain rounded-lg"
       />
-      <span class="block text-[#F74346] text-center mt-3"
+      <span
+        class="block text-[#F74346] text-center mt-3"
+        [routerLink]="['/home', movie?.id]"
         >{{ movie.title }}</span
       >
     </ion-card>

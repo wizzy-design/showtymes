@@ -5,11 +5,12 @@ module.exports = {
     extend: {
       fontFamily: {
         robo: "Roboto, sans-serif",
+        inter: "Inter, sans-serif",
       },
       colors: {
-        signInButtonBorder: 'rgba(108, 96, 125, 0.53)'
+        signInButtonBorder: "rgba(108, 96, 125, 0.53)",
       },
-    }
+    },
   },
   plugins: [require("@tailwindcss/forms"), require("@tailwindcss/typography")],
 };

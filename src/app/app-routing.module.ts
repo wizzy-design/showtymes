@@ -56,11 +56,14 @@ const routes: Routes = [
             (m) => m.ProfilePageModule
           ),
       },
+      {
+        path: 'home/:id',
+        loadChildren: () =>
+          import('./pages/movie-details/movie-details.module').then(
+            (m) => m.MovieDetailsPageModule
+          ),
+      },
     ],
-  },
-  {
-    path: 'movie-details',
-    loadChildren: () => import('./pages/movie-details/movie-details.module').then( m => m.MovieDetailsPageModule)
   },
 ];
 

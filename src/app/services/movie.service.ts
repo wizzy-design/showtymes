@@ -39,11 +39,17 @@ export class MovieService {
     );
   }
 
-  getMovieDetails(id: string): Observable<any> {
+  getMovieDetails(id: string | null): Observable<any> {
     return this.http.get<ApiResult>(
       `${environment.baseUrl}/movie/${id}?api_key=${environment.apiKey}`
     );
   }
+
+  // getImageDetails(id: string | null): Observable<any> {
+  //   return this.http.get<ApiResult>(
+  //     `${environment.baseUrl}/movie/${id}/images?api_key=${environment.apiKey}`
+  //   );
+  // }
 
   getAvailableMovies(page = 1): Observable<ApiResult> {
     return this.http.get<ApiResult>(
