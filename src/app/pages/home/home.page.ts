@@ -21,7 +21,7 @@ export class HomePage implements OnInit {
   topMovies: Movie[] = [];
   soonMovies: Movie[] = [];
   currentPage = 1;
-  imageBaseUrl = environment.images;
+  imageBaseUrl = 'http://image.tmdb.org/t/p';
 
   constructor(
     private movieService: MovieService,

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {
   Auth,
   createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
   signOut,
 } from '@angular/fire/auth';
 
@@ -26,7 +27,7 @@ export class AuthService {
 
   async login({ email, password }: { email: string; password: string }) {
     try {
-      const user = await createUserWithEmailAndPassword(
+      const user = await signInWithEmailAndPassword(
         this.auth,
         email,
         password

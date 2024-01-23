@@ -26,7 +26,7 @@ interface MovieInfo {
 export class MovieDetailsPage implements OnInit {
   movie: MovieInfo | any;
   // image: Backdrop | any;
-  imageBaseUrl = environment.images;
+  imageBaseUrl = 'http://image.tmdb.org/t/p';
 
   constructor(
     private route: ActivatedRoute,

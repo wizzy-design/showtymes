@@ -27,6 +27,9 @@ export interface ApiResult {
   vote_count: number;
 }
 
+// const API_KEY: any = environment.apiKey;
+// const BASE_URL: any = environment.baseUrl;
+
 @Injectable({
   providedIn: 'root',
 })
@@ -35,31 +38,31 @@ export class MovieService {
 
   getTopRatedMovies(page = 1): Observable<ApiResult> {
     return this.http.get<ApiResult>(
-      `${environment.baseUrl}/movie/popular?page=${page}&api_key=${environment.apiKey}`
+      `https://api.themoviedb.org/3/movie/popular?page=${page}&api_key=becbdef455e97340e5d0b1b5e5570c2d`
     );
   }
 
   getMovieDetails(id: string | null): Observable<any> {
     return this.http.get<ApiResult>(
-      `${environment.baseUrl}/movie/${id}?api_key=${environment.apiKey}`
+      `https://api.themoviedb.org/3/movie/${id}?api_key=becbdef455e97340e5d0b1b5e5570c2d`
     );
   }
 
   // getImageDetails(id: string | null): Observable<any> {
   //   return this.http.get<ApiResult>(
-  //     `${environment.baseUrl}/movie/${id}/images?api_key=${environment.apiKey}`
+  //     `https://api.themoviedb.org/3/movie/${id}/images?api_key=becbdef455e97340e5d0b1b5e5570c2d`
   //   );
   // }
 
   getAvailableMovies(page = 1): Observable<ApiResult> {
     return this.http.get<ApiResult>(
-      `${environment.baseUrl}/movie/now_playing?api_key=${environment.apiKey}`
+      `https://api.themoviedb.org/3/movie/now_playing?api_key=becbdef455e97340e5d0b1b5e5570c2d`
     );
   }
 
   getUpcomingMovies(page = 1): Observable<ApiResult> {
     return this.http.get<ApiResult>(
-      `${environment.baseUrl}/movie/upcoming?api_key=${environment.apiKey}`
+      `https://api.themoviedb.org/3/movie/upcoming?api_key=becbdef455e97340e5d0b1b5e5570c2d`
     );
   }
 }

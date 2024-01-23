@@ -19,7 +19,7 @@ interface Movie {
 export class TrendgridComponent implements OnInit {
   movies: Movie[] = [];
   currentPage = 1;
-  imageBaseUrl = environment.images;
+  imageBaseUrl = 'http://image.tmdb.org/t/p';
 
   constructor(
     private movieService: MovieService,
