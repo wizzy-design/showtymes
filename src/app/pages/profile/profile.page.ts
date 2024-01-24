@@ -22,7 +22,7 @@ export class ProfilePage implements OnInit {
 
   getUserProfileName() {
     const username = this.auth.currentUser;
-    console.log("Hey it's user", username);
+    // console.log("Hey it's user", username);
     return username;
   }
 

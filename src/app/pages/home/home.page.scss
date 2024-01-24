@@ -1,9 +1,25 @@
-.segment-button-checked{
-    color: #F74346;
-    border: 2px solid #F74346;
+.segment-button-checked {
+  color: #f74346;
+  border: 2px solid #f74346;
 }
 
-*{
-    --color-checked: none;
+* {
+  --color-checked: none;
 }
 
+ion-toolbar {
+  --background: #161621;
+  --padding-top: 1rem;
+  --padding-bottom: 1rem;
+  --padding-start: 0.7rem;
+  --padding-end: 1rem;
+
+  ion-searchbar{
+    --background: #2B2B38;
+    --border-radius: 0.625rem;
+  }
+}
+
+ion-content {
+  --padding-top: 2rem;
+}

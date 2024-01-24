@@ -1,12 +1,40 @@
-<ion-header>
+<ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-searchbar placeholder="Search movies"></ion-searchbar>
+    <!-- Searchbar -->
+    <ion-searchbar
+      (ionChange)="searchMovies($event)"
+      class="w-[90%]"
+      placeholder="Search movies"
+    ></ion-searchbar>
+
+    <!-- Cart Button -->
+    <ion-buttons slot="end">
+      <ion-button class="bg-[#2B2B38] rounded-lg p-1"
+        ><ion-icon
+          name="cart-outline"
+          class="text-[#FAEAFF] text-2xl"
+        ></ion-icon
+      ></ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
-<!-- <app-trendgrid></app-trendgrid> -->
-<ion-content class="bg-[#161621]">
-  <br />
-  <br />
+
+<ion-content class="bg-[#161621] relative">
+  <!-- Search Result -->
+  <ion-list class="absolute top-0 left-6 z-40 w-[80%] bg-[#161621]">
+    <ion-item button *ngFor="let movie of movieList" [routerLink]="[movie?.id]">
+      <ion-avatar slot="start" class="rounded-md h-4">
+        <img [src]="imageBaseUrl + '/w400' + movie.poster_path" />
+      </ion-avatar>
+      <ion-label
+        >{{movie.title}}
+        <p>{{movie.release_date | date: 'y'}}</p>
+      </ion-label>
+
+      <ion-badge slot="end">{{ movie.vote_average }}</ion-badge>
+    </ion-item>
+  </ion-list>
+
   <!-- Segment Buttons -->
   <ion-segment
     (ionChange)="segmentChanged($event)"
