@@ -1,18 +1,43 @@
-<ion-header>
+<ion-header class="ion-no-border">
   <ion-toolbar>
-    <!-- Back Button -->
-    <ion-buttons slot="start">
-      <ion-back-button
-        default-href="#"
-        icon="chevron-back-outline"
-      ></ion-back-button>
-    </ion-buttons>
+    <!-- Searchbar -->
+    <ion-searchbar
+      (ionChange)="searchMovies($event)"
+      class="w-[90%]"
+      placeholder="Search movies"
+    ></ion-searchbar>
 
     <!-- Cart Button -->
     <ion-buttons slot="end">
       <ion-button class="bg-[#2B2B38] rounded-lg p-1"
-        ><ion-icon name="cart-outline" class="text-[#FAEAFF] text-2xl"></ion-icon
+        ><ion-icon
+          name="cart-outline"
+          class="text-[#FAEAFF] text-2xl"
+        ></ion-icon
       ></ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
+
+<div
+  class="absolute w-[80%] max-h-[600px] overflow-y-scroll"
+  *ngIf="movieList && movieList.length > 0"
+>
+  <!-- Search Result -->
+  <ion-list>
+    <ion-item button *ngFor="let movie of movieList" [routerLink]="[movie?.id]">
+      <ion-avatar slot="start">
+        <img
+          [src]="imageBaseUrl + '/w400' + movie.poster_path"
+          class="h-[3rem] w-[3rem] object-contain"
+        />
+      </ion-avatar>
+      <ion-label
+        >{{ movie.title }}
+        <p>{{ movie.release_date | date : "y" }}</p>
+      </ion-label>
+
+      <ion-badge slot="end">{{ movie.vote_average }}</ion-badge>
+    </ion-item>
+  </ion-list>
+</div>

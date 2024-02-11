@@ -8,10 +8,17 @@ import { HomePageRoutingModule } from './home-routing.module';
 
 import { HomePage } from './home.page';
 import { TrendgridComponent } from 'src/app/trendgrid/trendgrid.component';
+import { SharedModule } from 'src/app/shared.module';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 @NgModule({
-  imports: [CommonModule, FormsModule, IonicModule, HomePageRoutingModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    IonicModule,
+    HomePageRoutingModule,
+    SharedModule,
+  ],
   declarations: [HomePage, TrendgridComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
