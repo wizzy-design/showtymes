@@ -4,13 +4,17 @@
 
 <ion-content>
   <!-- Genre's -->
-  <ion-title class="pt-4 text-2xl">Genre</ion-title>
+  <ion-title class="pt-4 text-3xl text-center">Categories</ion-title>
 
   <!-- Genre's List -->
   <ion-list
     class="grid grid-cols-2 justify-items-center bg-[#161621] pt-6 gap-y-6 gap-x-4"
   >
-    <ion-card *ngFor="let genre of genres" class="bg-[#2B2B38] p-0 rounded-xl">
+    <ion-card
+      *ngFor="let genre of genres"
+      class="bg-[#2B2B38] p-0 rounded-xl"
+      [routerLink]="['/categories', genre?.id]"
+    >
       <!-- Card Image -->
       <ion-card-content *ngIf="beginMovies[genre.id]">
         <img

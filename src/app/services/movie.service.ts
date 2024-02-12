@@ -67,7 +67,7 @@ export class MovieService {
     );
   }
 
-  getMovieByGenre(id: number): Observable<ApiResult> {
+  getMovieByGenre(id: any ): Observable<ApiResult> {
     return this.http.get<ApiResult>(
       `https://api.themoviedb.org/3/discover/movie?api_key=becbdef455e97340e5d0b1b5e5570c2d&with_genres=${id}`
     );

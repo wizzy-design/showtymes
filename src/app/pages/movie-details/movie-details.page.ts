@@ -1,22 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MovieService } from 'src/app/services/movie.service';
-import { environment } from 'src/environments/environment';
 
 interface MovieInfo {
-  // id: string,
   title: string;
 }
-
-// interface Backdrop {
-//   aspect_ratio: number;
-//   height: number;
-//   iso_639_1?: string;
-//   file_path: string;
-//   vote_average: number;
-//   vote_count: number;
-//   width: number;
-// }
 
 @Component({
   selector: 'app-movie-details',
@@ -25,7 +13,6 @@ interface MovieInfo {
 })
 export class MovieDetailsPage implements OnInit {
   movie: MovieInfo | any;
-  // image: Backdrop | any;
   imageBaseUrl = 'http://image.tmdb.org/t/p';
 
   constructor(
@@ -39,10 +26,5 @@ export class MovieDetailsPage implements OnInit {
       console.log(res);
       this.movie = res;
     });
-
-    // this.movieService.getImageDetails(id).subscribe((res) => {
-    //   console.log(res);
-    //   this.image = res;
-    // });
   }
 }

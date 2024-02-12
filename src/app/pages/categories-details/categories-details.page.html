@@ -1,0 +1,39 @@
+<ion-header class="flex items-center">
+  <ion-toolbar class="max-w-min">
+    <!-- Back Button -->
+    <ion-buttons slot="start">
+      <ion-back-button
+        default-href="#"
+        icon="chevron-back-outline"
+      ></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <app-searchbar class="w-full"></app-searchbar>
+</ion-header>
+
+<ion-content>
+  <ion-title class="pt-4 text-3xl text-center"
+    >Genre's | {{genreName}}</ion-title
+  >
+  <!-- The line -->
+  <div class="mt-4 h-1 w-full bg-[#6C607D87]"></div>
+  <!-- Showing Now -->
+  <ion-list class="grid grid-cols-2 justify-items-center bg-[#161621] pt-6">
+    <ion-card
+      *ngFor="let movie of genreMovies"
+      [routerLink]="['/home', movie?.id]"
+      class="flex flex-col h-72 w-[10rem] bg-[#161621] shadow-none"
+    >
+      <img
+        [src]="imageBaseUrl + '/w400' + movie.poster_path"
+        [routerLink]="['/home', movie?.id]"
+        class="object-contain rounded-lg"
+      />
+      <span
+        class="block text-[#F74346] text-center mt-3"
+        [routerLink]="['/home', movie?.id]"
+        >{{ movie.title }}</span
+      >
+    </ion-card>
+  </ion-list>
+</ion-content>

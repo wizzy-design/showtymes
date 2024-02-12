@@ -45,6 +45,13 @@ const routes: Routes = [
           ),
       },
       {
+        path: 'categories/:id',
+        loadChildren: () =>
+          import('./pages/categories-details/categories-details.module').then(
+            (m) => m.CategoriesDetailsPageModule
+          ),
+      },
+      {
         path: 'food',
         loadChildren: () =>
           import('./pages/food/food.module').then((m) => m.FoodPageModule),
