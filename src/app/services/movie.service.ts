@@ -3,6 +3,11 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
+interface Genres {
+  title: string;
+  posterPath: string;
+}
+
 export interface ApiResult {
   pages: number;
   results: any[];
@@ -25,6 +30,8 @@ export interface ApiResult {
   video: boolean;
   vote_average: number;
   vote_count: number;
+  length: number;
+  [key: number]: Genres;
 }
 
 // const API_KEY: any = environment.apiKey;
@@ -48,12 +55,6 @@ export class MovieService {
     );
   }
 
-  // getImageDetails(id: string | null): Observable<any> {
-  //   return this.http.get<ApiResult>(
-  //     `https://api.themoviedb.org/3/movie/${id}/images?api_key=becbdef455e97340e5d0b1b5e5570c2d`
-  //   );
-  // }
-
   getAvailableMovies(page = 1): Observable<ApiResult> {
     return this.http.get<ApiResult>(
       `https://api.themoviedb.org/3/movie/now_playing?api_key=becbdef455e97340e5d0b1b5e5570c2d`
@@ -63,6 +64,12 @@ export class MovieService {
   getUpcomingMovies(page = 1): Observable<ApiResult> {
     return this.http.get<ApiResult>(
       `https://api.themoviedb.org/3/movie/upcoming?api_key=becbdef455e97340e5d0b1b5e5570c2d`
+    );
+  }
+
+  getMovieByGenre(id: number): Observable<ApiResult> {
+    return this.http.get<ApiResult>(
+      `https://api.themoviedb.org/3/discover/movie?api_key=becbdef455e97340e5d0b1b5e5570c2d&with_genres=${id}`
     );
   }
 }

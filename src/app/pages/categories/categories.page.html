@@ -2,10 +2,19 @@
   <app-searchbar></app-searchbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">categories</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <!-- Genre's List -->
+  <ion-list class="grid grid-cols-2 justify-items-center bg-[#161621] pt-6">
+    <ion-card *ngFor="let genre of genres">
+      <span>{{genre.name}}</span>
+
+      <ion-card-content *ngIf="beginMovies[genre.id]">
+        <!-- Display the poster of the first movie for each genre -->
+        <img
+          [src]="imageBaseUrl + '/w400' + beginMovies[genre.id].poster_path"
+          alt="Image based on genre"
+        />
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
 </ion-content>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './searchbar.component.html',
   styleUrls: ['./searchbar.component.scss'],
 })
-export class SearchbarComponent implements OnInit {
+export class SearchbarComponent  {
   movieList: any[] = [];
   imageBaseUrl = 'http://image.tmdb.org/t/p';
 
@@ -28,5 +28,5 @@ export class SearchbarComponent implements OnInit {
     }
   }
 
-  ngOnInit() {}
+  
 }

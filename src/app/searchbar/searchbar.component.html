@@ -25,7 +25,7 @@
 >
   <!-- Search Result -->
   <ion-list>
-    <ion-item button *ngFor="let movie of movieList" [routerLink]="[movie?.id]">
+    <ion-item button *ngFor="let movie of movieList" [routerLink]="[movie?.id]" class="border-solid border-t-[1px] border-b-[1px] border-gray-600">
       <ion-avatar slot="start">
         <img
           [src]="imageBaseUrl + '/w400' + movie.poster_path"
