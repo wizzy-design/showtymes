@@ -1,5 +1,5 @@
-<ion-header class="ion-no-border">
-  <ion-toolbar>
+<ion-header class="pt-4 pb-2 ion-no-border">
+  <ion-toolbar class="px-3">
     <!-- Searchbar -->
     <ion-searchbar
       (ionChange)="searchMovies($event)"
@@ -25,7 +25,12 @@
 >
   <!-- Search Result -->
   <ion-list>
-    <ion-item button *ngFor="let movie of movieList" [routerLink]="[movie?.id]" class="border-solid border-t-[1px] border-b-[1px] border-gray-600">
+    <ion-item
+      button
+      *ngFor="let movie of movieList"
+      [routerLink]="[movie?.id]"
+      class="border-solid border-t-[1px] border-b-[1px] border-gray-600"
+    >
       <ion-avatar slot="start">
         <img
           [src]="imageBaseUrl + '/w400' + movie.poster_path"
