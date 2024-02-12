@@ -52,11 +52,6 @@ const routes: Routes = [
           ),
       },
       {
-        path: 'food',
-        loadChildren: () =>
-          import('./pages/food/food.module').then((m) => m.FoodPageModule),
-      },
-      {
         path: 'profile',
         loadChildren: () =>
           import('./pages/profile/profile.module').then(
